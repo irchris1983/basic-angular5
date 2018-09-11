@@ -1,0 +1,15 @@
+button{
+    color: blue;
+    font-size: 25px;
+}
+
+.divider{
+    width:25px;
+    height:auto;
+    display:inline-block;
+}
+
+footer{
+    position: absolute;     
+    padding: 10;
+}

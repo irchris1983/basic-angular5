@@ -7,9 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Test the update';
-
-  onClick(){
-    
+  onClick(): void {
+    this.title = 'Test successful';
   }
-  
 }
