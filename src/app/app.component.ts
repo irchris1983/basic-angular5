@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 
 @Component({
@@ -7,8 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  // @Input() btn = 'hidebtn';
   title = 'Test the update';
+  btn = true;
+  val = 0;
+
   onClick(): void {
     this.title = 'Test successful';
+    // this.btn = true;
+    this.val = 100;
   }
 }
