@@ -1,9 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    {{ title }}!    
+    {{ title }}    
   </h1>  
 </div>
+<hr/>
+<app-login (user)= "title = $event"></app-login>
 <hr/>
 <app-about [num]="val" (hidebtn)= "btn = $event"></app-about>
 <footer>
