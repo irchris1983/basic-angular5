@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
         this.user.emit('Username: ' + this.Username);
     }
 
-    onKey(value: string) {
+    keyEntry(value: string) {
         this.Username = value;
       }
 }

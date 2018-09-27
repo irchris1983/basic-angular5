@@ -4,11 +4,17 @@
     {{ title }}    
   </h1>  
 </div>
+<!--
+  <hr/>
+  <app-login (user)= "title = $event"></app-login>
+-->
 <hr/>
-<app-login (user)= "title = $event"></app-login>
+<router-outlet></router-outlet>
+<!--
+  <app-about [num]="val" (hidebtn)= "btn = $event"></app-about>
+-->
 <hr/>
-<app-about [num]="val" (hidebtn)= "btn = $event"></app-about>
-<footer>
+  <footer>
   <button type="submit" [hidden]="btn">Back</button>
   <div class="divider"></div>
   <button (click)="onClick()">Next</button>
