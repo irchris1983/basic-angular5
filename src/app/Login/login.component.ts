@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router'; 
+import { ActivatedRoute, Router } from '@angular/router'; 
+import { AppService } from '../app.service'
 
 @Component({
     selector: 'app-login',
@@ -8,21 +8,22 @@ import { Router } from '@angular/router';
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-    Username = '';
+    username = '';
     @Output() user = new EventEmitter<string>();
-    constructor(private route: ActivatedRoute, private router: Router) { }
-    //private route: ActivatedRoute, private router: Router
+    constructor(private route: ActivatedRoute, private router: Router, private service: AppService) { }
+    
     ngOnInit(): void {
         this.user.emit('Login as user');
     }
 
     login(): void {
-        this.user.emit('Username: ' + this.Username);
-        this.router.navigate(['about/12']);
+        this.user.emit('Username: ' + this.username);
+        this.service.setDetails(this.username);
+        this.router.navigate(['about']);
     }
 
     keyEntry(value: string) {
-        this.Username = value;
+        this.username = value;
       }
 }
 

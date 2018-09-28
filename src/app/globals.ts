@@ -1,3 +1,7 @@
 export class Globals {
-    num: number;
+    num: number;    
+  }
+
+export class LoginDetails{
+    username: string;
   }

@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { AppService } from './app.service';
+import { Globals } from './globals';
 
 @Component({
   selector: 'app-root',

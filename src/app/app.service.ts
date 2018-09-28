@@ -1,26 +1,26 @@
 import { Injectable } from '@angular/core';
-
 import { Observable, of } from 'rxjs';
 
-import { Globals } from './globals';
+import { Globals, LoginDetails } from './globals';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppService {
-    
+test: Globals = {num:234};
+ID: LoginDetails;
+
   constructor() { }
 
-  getValues(): Observable<number>{
-    //const test: Globals = { num:12};
-    const test = 5;
-    return of(test);
+  getValues(): Observable<Globals>{    
+    return of(this.test);
+  }
+
+  getDetails(): Observable<LoginDetails>{    
+    return of(this.ID);
+  }
+  setDetails(username) {
+    this.ID.username = username;
   }
   
-  
-  //getHeroes(): Observable<Hero[]> {
-    // TODO: send the message _after_ fetching the heroes
-  //  this.messageService.add('HeroService: fetched heroes');
-  // return of(HEROES);
-  //}
 }
