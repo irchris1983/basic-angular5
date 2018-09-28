@@ -9,15 +9,14 @@ import { LoginComponent } from './Login/login.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'about/:num', component: AboutComponent },
 ];
 
 @NgModule({
 
   imports: [
     BrowserModule,
-    RouterModule.forRoot(
-      appRoutes,
+    RouterModule.forRoot(appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
