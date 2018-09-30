@@ -15,10 +15,6 @@ export class ControlComponent implements OnInit {
     constructor(private router: Router, private service: AppService) { }
 
     ngOnInit(): void {
-        this.getnum(); 
-    }
-
-    getnum(): void {
         this.service.getValues().subscribe(val => this.val = val);
         this.service.getDetails().subscribe(val => this.user = val);
     }
