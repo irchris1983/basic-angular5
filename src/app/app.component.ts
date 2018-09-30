@@ -1,17 +1,20 @@
-import { Component, Input } from '@angular/core';
-import { AppService } from './app.service';
-import { Globals } from './globals';
+import { Component, OnInit} from '@angular/core';
+
+import { AppService } from './app.service'
+import { Title } from './globals';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   btn = true;
-  val = 0;
+  title: Title;
+  constructor(private service: AppService ){}
 
-  onClick(): void {
-      this.val = 100;
+  ngOnInit(): void {
+    this.service.getTitle().subscribe(val => this.title = val);
+    
   }
 }

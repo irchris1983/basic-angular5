@@ -1,7 +1,11 @@
 export class Globals {
-    num: number;    
-  }
+  num: number;    
+}
 
 export class LoginDetails{
-    username: string;
-  }
+  username: string;
+}
+
+export class Title{
+  title: string;
+}

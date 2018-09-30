@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, OnChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../app.service';
-import { Globals, LoginDetails} from '../globals';
+
 
 @Component({
     selector: 'app-about',
@@ -11,13 +11,11 @@ import { Globals, LoginDetails} from '../globals';
 export class AboutComponent implements OnChanges {
     //@Input() num = Number;
     @Output() hidebtn = new EventEmitter<boolean>();
-    val: Globals;
-    user: LoginDetails;
+    
     constructor(private route: ActivatedRoute, private router: Router, private service: AppService) {
       }
 
-    ngOnInit() {
-        this.getnum();  
+    ngOnInit() {          
     }
 
     ngOnChanges(): void {
@@ -25,11 +23,9 @@ export class AboutComponent implements OnChanges {
     }
 
     previous(): void{
-        this.router.navigate(['login']);
+        this.service.setTitle('Control');
+        this.router.navigate(['control']);
     }
 
-    getnum(): void {
-        this.service.getValues().subscribe(val => this.val = val);
-        this.service.getDetails().subscribe(val => this.user = val);
-    }
+    
 }

@@ -4,11 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './About/about.component';
-// import { HelpComponent } from './Help/help.component';
+import { ControlComponent } from './Control/control.component';
 import { LoginComponent } from './Login/login.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'control', component: ControlComponent},
   { path: 'about', component: AboutComponent },
 ];
 
@@ -22,7 +23,7 @@ const appRoutes: Routes = [
   ],
 
   declarations: [
-    AppComponent, AboutComponent, LoginComponent
+    AppComponent, AboutComponent, LoginComponent, ControlComponent
   ],
 
   providers: [],

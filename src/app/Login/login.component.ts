@@ -1,6 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'; 
+
 import { AppService } from '../app.service'
+import { Title } from '../globals'
 
 @Component({
     selector: 'app-login',
@@ -9,17 +11,17 @@ import { AppService } from '../app.service'
 })
 export class LoginComponent implements OnInit {
     username = '';
-    @Output() user = new EventEmitter<string>();
+    
     constructor(private route: ActivatedRoute, private router: Router, private service: AppService) { }
     
     ngOnInit(): void {
-        this.user.emit('Login as user');
+        this.service.setTitle('Login');
     }
 
     login(): void {
-        this.user.emit('Username: ' + this.username);
         this.service.setDetails(this.username);
-        this.router.navigate(['about']);
+        this.service.setTitle('Control');
+        this.router.navigate(['control']);
     }
 
     keyEntry(value: string) {
