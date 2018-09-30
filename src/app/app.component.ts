@@ -9,7 +9,6 @@ import { Title } from './globals';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  btn = true;
   title: Title;
   constructor(private service: AppService ){}
 
