@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 
-import { AppService } from './app.service'
+import { AppService } from './app.service';
 import { Title } from './globals';
 
 @Component({
@@ -10,10 +10,10 @@ import { Title } from './globals';
 })
 export class AppComponent implements OnInit {
   title: Title;
-  constructor(private service: AppService ){}
+  constructor(private service: AppService ) {}
 
   ngOnInit(): void {
     this.service.getTitle().subscribe(val => this.title = val);
-    
+
   }
 }

@@ -7,17 +7,17 @@ import { Globals, LoginDetails, Title } from './globals';
   providedIn: 'root',
 })
 export class AppService {
-test: Globals = {num:234};
+test: Globals = {num: 234};
 ID: LoginDetails = {username: '' };
 title: Title = { title: '' };
 
   constructor() { }
 
-  getValues(): Observable<Globals>{    
+  getValues(): Observable<Globals> {
     return of(this.test);
   }
 
-  getDetails(): Observable<LoginDetails>{    
+  getDetails(): Observable<LoginDetails> {
     return of(this.ID);
   }
 
@@ -29,8 +29,8 @@ title: Title = { title: '' };
     this.title.title = title;
   }
 
-  getTitle(): Observable<Title>{
+  getTitle(): Observable<Title> {
     return of(this.title);
   }
-  
+
 }

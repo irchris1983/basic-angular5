@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AppService } from '../app.service'
+import { AppService } from '../app.service';
 import { Globals, LoginDetails } from '../globals';
 
 @Component({
@@ -19,12 +19,12 @@ export class ControlComponent implements OnInit {
         this.service.getDetails().subscribe(val => this.user = val);
     }
 
-    next():void{
+    next(): void {
         this.service.setTitle('About');
         this.router.navigate(['about']);
     }
 
-    previous(): void{
+    previous(): void {
         this.service.setTitle('Login');
         this.router.navigate(['login']);
     }

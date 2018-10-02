@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
 
-import { AppService } from '../app.service'
+import { AppService } from '../app.service';
 
 @Component({
     selector: 'app-login',
@@ -10,9 +10,9 @@ import { AppService } from '../app.service'
 })
 export class LoginComponent implements OnInit {
     username = '';
-    
+
     constructor(private router: Router, private service: AppService) { }
-    
+
     ngOnInit(): void {
         this.service.setTitle('Login');
     }

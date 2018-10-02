@@ -15,10 +15,10 @@ export class AboutComponent implements OnChanges {
     ngOnChanges(): void {
     }
 
-    previous(): void{
+    previous(): void {
         this.service.setTitle('Control');
         this.router.navigate(['control']);
     }
 
-    
+
 }
