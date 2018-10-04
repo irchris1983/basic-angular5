@@ -8,9 +8,11 @@ import { ControlComponent } from './Control/control.component';
 import { LoginComponent } from './Login/login.component';
 
 const appRoutes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'control', component: ControlComponent},
   { path: 'about', component: AboutComponent },
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({

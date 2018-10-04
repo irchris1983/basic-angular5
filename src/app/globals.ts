@@ -1,11 +1,11 @@
 export class Globals {
-  num: number;    
+  num: number;
 }
 
-export class LoginDetails{
+export class LoginDetails {
   username: string;
 }
 
-export class Title{
+export class Title {
   title: string;
 }
