@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AppService } from '../app.service';
-import { Globals, LoginDetails } from '../globals';
+import { AppService } from '../../app.service';
+import { Globals, LoginDetails } from '../../globals';
 
 @Component({
     selector: 'app-control',
