@@ -9,3 +9,8 @@ export class LoginDetails {
 export class Title {
   title: string;
 }
+
+export interface Config {
+  heroesUrl: string;
+  textfile: string;
+}

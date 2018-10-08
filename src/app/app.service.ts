@@ -1,12 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
-import { Globals, LoginDetails, Title } from './globals';
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+import { Globals, LoginDetails, Title, Config } from './globals';
 
 @Injectable({
   providedIn: 'root',
@@ -18,9 +14,11 @@ title: Title = { title: '' };
 
   constructor(private http: HttpClient) { }
 
-  testAPI() {
-    return this.http.get('/api/food');
-  }
+  // configUrl = 'assets/config.json';
+
+  // getConfig() {
+  // return this.http.get<Config>(this.configUrl);
+  // }
 
   setTitle(title: string) {
     this.title.title = title;

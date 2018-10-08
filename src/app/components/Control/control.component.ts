@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AppService } from '../../app.service';
-import { Globals, LoginDetails } from '../../globals';
+import { Globals, LoginDetails, Config } from '../../globals';
+import { ComponentService } from '../component.service';
 
 @Component({
     selector: 'app-control',
@@ -12,11 +13,18 @@ import { Globals, LoginDetails } from '../../globals';
 export class ControlComponent implements OnInit {
     val: Globals;
     user: LoginDetails;
-    constructor(private router: Router, private service: AppService) { }
+    config: Config;
+
+    constructor(
+        private router: Router,
+        private service: AppService,
+        private compService: ComponentService
+        ) { }
 
     ngOnInit(): void {
         this.service.getValues().subscribe(val => this.val = val);
         this.service.getDetails().subscribe(val => this.user = val);
+        this.compService.getConfig().subscribe(val => this.config = val);
     }
 
     next(): void {
