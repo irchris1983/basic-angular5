@@ -24,7 +24,7 @@ export class ControlComponent implements OnInit {
     ngOnInit(): void {
         this.service.getValues().subscribe(val => this.val = val);
         this.service.getDetails().subscribe(val => this.user = val);
-        this.compService.getConfig().subscribe(val => this.config = val);
+        // this.compService.getConfig().subscribe(val => this.config = val);
     }
 
     next(): void {
