@@ -25,6 +25,8 @@ export class ControlComponent implements OnInit {
         this.service.getValues().subscribe(val => this.val = val);
         this.service.getDetails().subscribe(val => this.user = val);
         // this.compService.getConfig().subscribe(val => this.config = val);
+        // getconfig not getting called properly
+        this.getConfig();
     }
 
     next(): void {
@@ -37,4 +39,7 @@ export class ControlComponent implements OnInit {
         this.router.navigate(['login']);
     }
 
+    getConfig(): void {
+        this.compService.getConfig().subscribe(val => this.config = val);
+    }
 }
