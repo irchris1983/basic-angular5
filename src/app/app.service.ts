@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 
 import { Globals, LoginDetails, Title, Config } from './globals';
 
@@ -12,13 +11,7 @@ test: Globals = {num: 234};
 ID: LoginDetails = {username: '' };
 title: Title = { title: '' };
 
-  constructor(private http: HttpClient) { }
-
-  // configUrl = 'assets/config.json';
-
-  // getConfig() {
-  // return this.http.get<Config>(this.configUrl);
-  // }
+  constructor() { }
 
   setTitle(title: string) {
     this.title.title = title;

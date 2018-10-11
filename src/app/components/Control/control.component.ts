@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 
 import { AppService } from '../../app.service';
 import { Globals, LoginDetails, Config } from '../../globals';
-import { ComponentService } from '../component.service';
+import { ControlService } from '../../services/control.service';
+
 
 @Component({
     selector: 'app-control',
@@ -18,14 +19,14 @@ export class ControlComponent implements OnInit {
     constructor(
         private router: Router,
         private service: AppService,
-        private compService: ComponentService
+        private compService: ControlService
+
         ) { }
 
     ngOnInit(): void {
         this.service.getValues().subscribe(val => this.val = val);
         this.service.getDetails().subscribe(val => this.user = val);
-        // this.compService.getConfig().subscribe(val => this.config = val);
-        // getconfig not getting called properly
+
         this.getConfig();
     }
 
@@ -39,7 +40,7 @@ export class ControlComponent implements OnInit {
         this.router.navigate(['login']);
     }
 
-    getConfig(): void {
+    getConfig() {
         this.compService.getConfig().subscribe(val => this.config = val);
     }
 }

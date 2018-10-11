@@ -11,6 +11,5 @@ export class Title {
 }
 
 export interface Config {
-  heroesUrl: string;
-  textfile: string;
+  teststring: string;
 }
