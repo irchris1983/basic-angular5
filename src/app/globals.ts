@@ -13,3 +13,7 @@ export class Title {
 export interface Config {
   teststring: string;
 }
+
+export interface Service {
+  value: string;
+}

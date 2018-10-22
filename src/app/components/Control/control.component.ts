@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AppService } from '../../app.service';
-import { Globals, LoginDetails, Config } from '../../globals';
+import { Globals, LoginDetails, Config, Service } from '../../globals';
 import { ControlService } from '../../services/control.service';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class ControlComponent implements OnInit {
     val: Globals;
     user: LoginDetails;
     config: Config;
+    value: Service;
 
     constructor(
         private router: Router,
@@ -26,7 +28,7 @@ export class ControlComponent implements OnInit {
     ngOnInit(): void {
         this.service.getValues().subscribe(val => this.val = val);
         this.service.getDetails().subscribe(val => this.user = val);
-
+        this.compService.getConfig().subscribe(responseData => console.log(responseData));
         this.getConfig();
     }
 
@@ -41,6 +43,7 @@ export class ControlComponent implements OnInit {
     }
 
     getConfig() {
-        this.compService.getConfig().subscribe(val => this.config = val);
+        this.compService.getConfig().subscribe(val => this.value = val);
+        // this.compService.getConfig().subscribe(val => this.config = val);
     }
 }
