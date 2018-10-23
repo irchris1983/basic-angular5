@@ -14,6 +14,6 @@ export interface Config {
   teststring: string;
 }
 
-export interface Service {
-  value: string;
+export interface User {
+  test: string;
 }
