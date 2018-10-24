@@ -15,24 +15,23 @@ export class ControlComponent implements OnInit {
     val: Globals;
     user: LoginDetails;
     config: Config;
-    usr: User;
+    usr: string;
 
     constructor(
         private router: Router,
         private service: AppService,
         private compService: ControlService
-
         ) { }
 
     ngOnInit(): void {
         this.service.getValues().subscribe(val => this.val = val);
         this.service.getDetails().subscribe(val => this.user = val);
-        console.log('test');
-        this.compService.getConfig().subscribe(responseData => console.log(responseData));
+        // this.compService.getConfig().subscribe(responseData => console.log(responseData));
         this.compService.getUser().subscribe(responseData => console.log(responseData));
-
+        this.compService.setUser('test');
+        // this.setUser('ChristopherColeman');
         // this.getConfig();
-        // this.getUser();
+        this.getUser();
     }
 
     next(): void {
@@ -51,5 +50,9 @@ export class ControlComponent implements OnInit {
 
     getUser() {
         this.compService.getUser().subscribe(val => this.usr = val);
+    }
+
+    setUser( user: string ) {
+        this.compService.setUser(user);
     }
 }

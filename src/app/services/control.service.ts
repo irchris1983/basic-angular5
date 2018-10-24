@@ -1,13 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Config, User } from '../globals';
+import { Body } from '@angular/http/src/body';
+
+const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Authorization': 'my-auth-token'
+    })
+};
 
 @Injectable({providedIn: 'root', })
 export class ControlService {
     constructor(private http: HttpClient) { }
 
-    userUrl = 'https://localhost:44339/api/values/getuser/chrismarie';
+
+    getUserUrl = 'https://localhost:44339/api/values/getuser';
+    setUserUrl = 'https://localhost:44339/api/values/setuser';
     configUrl = 'https://localhost:44339/api/values'; // 'assets/config.json';
 
     getConfig() {
@@ -15,6 +25,11 @@ export class ControlService {
     }
 
     getUser() {
-        return this.http.get<User>(this.userUrl);
+        return this.http.get(this.getUserUrl, { responseType: 'text'});
+    }
+
+    setUser(user: string) {
+        this.http.put(this.setUserUrl, user, httpOptions);
+
     }
 }
