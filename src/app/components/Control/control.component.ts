@@ -28,10 +28,10 @@ export class ControlComponent implements OnInit {
         this.service.getDetails().subscribe(val => this.user = val);
         // this.compService.getConfig().subscribe(responseData => console.log(responseData));
         this.compService.getUser().subscribe(responseData => console.log(responseData));
-        this.compService.setUser('test');
+        this.compService.setUser('testing');
         // this.setUser('ChristopherColeman');
         // this.getConfig();
-        this.getUser();
+        // this.getUser();
     }
 
     next(): void {

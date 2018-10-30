@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Config, User } from '../globals';
-import { Body } from '@angular/http/src/body';
+import { Observable } from 'rxjs';
 
 const httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'Authorization': 'my-auth-token'
+        'Content-Type':  'application/json',
+        'Authorization': 'my-auth-token'
     })
 };
 
@@ -17,7 +17,7 @@ export class ControlService {
 
 
     getUserUrl = 'https://localhost:44339/api/values/getuser';
-    setUserUrl = 'https://localhost:44339/api/values/setuser';
+    setUserUrl = 'https://localhost:44339/api/values/setuser/christop';
     configUrl = 'https://localhost:44339/api/values'; // 'assets/config.json';
 
     getConfig() {
@@ -29,7 +29,6 @@ export class ControlService {
     }
 
     setUser(user: string) {
-        this.http.put(this.setUserUrl, user, httpOptions);
-
+        this.http.put<string>(this.setUserUrl, user, httpOptions).subscribe( );
     }
 }
