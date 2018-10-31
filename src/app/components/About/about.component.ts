@@ -16,7 +16,6 @@ export class AboutComponent implements OnChanges {
     }
 
     previous(): void {
-        this.service.setTitle('Control');
         this.router.navigate(['control']);
     }
 

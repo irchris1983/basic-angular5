@@ -29,9 +29,9 @@ title: Title = { title: '' };
     return of(this.ID);
   }
 
-  setDetails(username: string) {
-    this.ID.username = username;
-  }
+  // setDetails(username: string) {
+  //   this.ID.username = username;
+  // }
 
 
 }

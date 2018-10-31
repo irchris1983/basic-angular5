@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AppService } from '../../app.service';
-import { Globals, LoginDetails, Config, User } from '../../globals';
+import { Globals, LoginDetails, Config } from '../../globals';
 import { ControlService } from '../../services/control.service';
-
 
 @Component({
     selector: 'app-control',
@@ -15,7 +14,6 @@ export class ControlComponent implements OnInit {
     val: Globals;
     user: LoginDetails;
     config: Config;
-    usr: string;
 
     constructor(
         private router: Router,
@@ -24,14 +22,12 @@ export class ControlComponent implements OnInit {
         ) { }
 
     ngOnInit(): void {
-        this.service.getValues().subscribe(val => this.val = val);
-        this.service.getDetails().subscribe(val => this.user = val);
+        this.service.setTitle('Control');
         // this.compService.getConfig().subscribe(responseData => console.log(responseData));
-        this.compService.getUser().subscribe(responseData => console.log(responseData));
-        this.compService.setUser('testing');
-        // this.setUser('ChristopherColeman');
+        // this.compService.getUser().subscribe(responseData => console.log(responseData));
+        // this.compService.setUser('testing');
         // this.getConfig();
-        // this.getUser();
+        this.getUser();
     }
 
     next(): void {
@@ -40,16 +36,15 @@ export class ControlComponent implements OnInit {
     }
 
     previous(): void {
-        this.service.setTitle('Login');
         this.router.navigate(['login']);
     }
 
     getConfig() {
-        // this.compService.getConfig().subscribe(val => this.config = val);
+        this.compService.getConfig().subscribe(val => this.config = val);
     }
 
     getUser() {
-        this.compService.getUser().subscribe(val => this.usr = val);
+        this.compService.getUser().subscribe(val => this.user = val);
     }
 
     setUser( user: string ) {

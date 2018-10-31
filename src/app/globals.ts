@@ -2,7 +2,7 @@ export class Globals {
   num: number;
 }
 
-export class LoginDetails {
+export interface LoginDetails {
   username: string;
 }
 
@@ -14,6 +14,4 @@ export interface Config {
   teststring: string;
 }
 
-export interface User {
-  test: string;
-}
+
